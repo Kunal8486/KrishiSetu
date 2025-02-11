@@ -1,0 +1,337 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: #ffffff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 80px;
+    transition: padding 0.3s ease, height 0.3s ease;
+}
+
+.navbar .logo img {
+    height: 60px;
+    transition: height 0.3s ease;
+}
+
+/* Navigation Links */
+.navbar .nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.navbar .nav-links ul {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .nav-links li {
+    list-style: none;
+}
+
+.navbar .nav-links a {
+    padding: 12px 18px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #222222;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar .nav-links li.active a,
+.navbar .nav-links a:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+/* Profile Dropdown */
+.navbar .profile-dropdown {
+    position: relative;
+}
+
+.navbar .profile-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .profile-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar .profile-button:hover .profile-icon {
+    transform: scale(1.1);
+}
+
+/* Dropdown Menu */
+.navbar .dropdown-menu {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar .profile-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.navbar .dropdown-menu li {
+    padding: 0px 10px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    width: 100%;
+    background-size: 10px;
+    box-sizing: border-box;
+}
+
+.navbar .dropdown-menu li a {
+    display: flex;
+    align-items: center;  /* Align icon and text */
+    gap: 8px;  /* Space between icon and text */
+    padding: px 20px;  /* Ensure proper spacing */
+    text-decoration: none;
+    color: #4b4b4b;
+    font-weight: bold;
+    font-size: 16px; /* Match text size */
+    height: 40px; /* Ensure equal height */
+}
+
+.navbar .dropdown-menu li img {
+    width: 20px; /* Set width to match text height */
+    height: 18px; /* Set height for a square icon */
+    object-fit: contain; /* Preserve image aspect ratio */
+    vertical-align: middle;
+}
+
+.navbar .dropdown-menu a,
+.navbar .dropdown-menu button {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    color: #4b4b4b;
+    font-size: 100%;
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+    box-sizing: border-box;
+    
+}
+
+.navbar .dropdown-menu button:hover,
+.navbar .dropdown-menu a:hover {
+    background: #f1f1f1;
+    color:#4b4b4b;
+    transform: scale(1);
+}
+
+.logout-button {
+    display: inline-flex; /* Use inline-flex for buttons in menus */
+    align-items: center; /* Align text and image vertically */
+    gap: 8px; /* Space between icon and text */
+    padding: 9px 12px; /* Adjust padding for button size */
+    font-size: 16px; /* Match text size */
+    font-weight: 500; /* Adjust weight for consistency */
+    font-weight: bold;
+    text-decoration: none; /* Remove underline for links */
+    color: #4b4b4b; /* Match text color */
+    border: none; /* No border for a clean look */
+    background: none; /* Transparent background */
+    cursor: pointer; /* Pointer cursor for buttons/links */
+}
+
+.navbar .dropdown-menu .logout-button:hover {
+    color : #ff2c2c; /* Match text color */
+}
+
+
+.logout-button img {
+    padding-left: 5px;
+    padding-right: 0px;
+    width: 20px !important; /* Set width to match text height */
+    height: 20px !important; /* Set height for a square icon */
+    object-fit: contain; /* Preserve image aspect ratio */
+    vertical-align: middle; /* Align image with text baseline */
+}
+
+
+
+/* Hamburger Button (Small Devices) */
+.navbar .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    transition: transform 0.3s ease;
+}
+
+.navbar .hamburger:hover {
+    transform: scale(1.2);
+}
+
+.navbar .hamburger img {
+    width: 100%;
+    height: auto;
+}
+
+/* Side Menu (Mobile) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    background-color: #660000;
+    color: white;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    z-index: 1001;
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.side-menu .close-menu {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.side-menu .close-menu:hover {
+    transform: rotate(90deg);
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    margin: 20px 0;
+}
+
+.side-menu a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 12px;
+    display: block;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.side-menu li.active a,
+.side-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+
+/* Medium Devices (Tablets) */
+@media (max-width: 960px) {
+    .navbar .nav-links {
+        display: none;
+    }
+
+    .navbar .hamburger {
+        display: flex;
+    }
+
+    .navbar .logo img {
+        height: 70px;
+    }
+
+    .navbar-container {
+        height: 85px;
+        padding: 0 15px;
+    }
+}
+
+/* Small Devices (Mobile Phones) */
+@media (max-width: 600px) {
+    .navbar .logo img {
+        height: 60px;
+    }
+
+    .navbar .hamburger img {
+        width: 30px;
+    }
+
+    .side-menu {
+        width: 250px;
+        padding: 20px;
+    }
+
+    .side-menu a {
+        font-size: 18px;
+    }
+
+    .side-menu li {
+        margin: 15px 0;
+    }
+}
